@@ -19,23 +19,25 @@ function getComputerChoice() { // returns "rock", "paper", or "scissors"
 }
 
 function getHumanChoice() { // returns "rock", "paper", or "scissors"
-    let userInput = prompt(`Enter the number that corresponds to your choice:
-    1. Rock
-    2. Paper
-    3. Scissors`);
+    let userInput = prompt(`Type the move you want to play:
+    Rock
+    Paper
+    Scissors`);
 
     console.log("userInput: ", userInput);
+    let userChoice = userInput.toLowerCase();
+    console.log("lowercase: ", userChoice);
 
-    switch (userInput) {
-        case "1":
+    switch (userChoice) {
+        case "rock":
             alert("You chose Rock");
             console.log("hc: rock");
             return "rock";
-        case "2":
+        case "paper":
             alert("You chose Paper");
             console.log("hc: paper");
             return "paper";
-        case "3":
+        case "scissors":
             alert("You chose Scissors");
             console.log("hc: scissors");
             return "scissors";
