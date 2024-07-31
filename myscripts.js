@@ -49,14 +49,39 @@ function playRound() {
     let computer = getComputerChoice();
     let human = getHumanChoice();
 
-    if (computer == human) {
-        alert("Tie");
-    }
-    else if {
-        alert("There's a winner");
-    }
-    else {
-        alert("Missing case");
+    switch (computer) {
+        case "rock":
+            if (human == "rock") {
+                alert("Tie");
+            }
+            else if (human == "paper") {
+                alert("Paper covers Rock. You win!");
+            }
+            else if (human == "scissors") {
+                alert("Rock crushes Scissors. You lose.");
+            }
+        case "paper":
+            if (human == "rock") {
+                alert("Paper covers Rock. You lose.");
+            }
+            else if (human == "paper") {
+                alert("Tie");
+            }
+            else if (human == "scissors") {
+                alert("Scissors cut Paper. You win!");
+            }
+        case "scissors":
+            if (human == "rock") {
+                alert("Rock crushes Scissors. You win!");
+            }
+            else if (human == "paper") {
+                alert("Scissors cut Paper. You lose.");
+            }
+            else if (human == "scissors") {
+                alert("Tie");
+            }
+        default:
+            alert("Other");
     }
 }
 
