@@ -43,6 +43,8 @@ function getHumanChoice() {
 
 }
 
+let humanScore = 0;
+let computerScore = 0;
 let computer = getComputerChoice();
 let human = getHumanChoice();
 
