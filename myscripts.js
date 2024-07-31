@@ -43,16 +43,12 @@ function getHumanChoice() { // returns "rock", "paper", or "scissors"
             return "scissors";
         default:
             alert("Your response was not an option or formatted incorrectly. Please try again.");
+            console.log("Rerun getHumanChoice because of typo");
             return getHumanChoice();
     }
 }
 
-function playRound() { // returns winner: "computer", "human", or "tie"
-    let computer = getComputerChoice();
-    console.log("playRound computer:", computer);
-    let human = getHumanChoice();
-    console.log("playRound human:", human);
-
+function playRound(computer, human) { // params: computer choice, human choice; returns winner: "computer", "human", or "tie"
     switch (computer) {
         case "rock":
             if (human == "paper") {
@@ -110,7 +106,11 @@ function playRound() { // returns winner: "computer", "human", or "tie"
 
 let humanScore = 0;
 let computerScore = 0;
-let winner = playRound();
+let computer = getComputerChoice();
+    console.log("global computer:", computer);
+    let human = getHumanChoice();
+    console.log("global human:", human);
+let winner = playRound(computer, human);
 console.log("winner: ", winner);
 
 
