@@ -1,6 +1,6 @@
 console.log("Connected to HTML!");
 
-function getComputerChoice() {
+function getComputerChoice() { // returns "rock", "paper", or "scissors"
     let choice = Math.floor(Math.random() * 300);
     console.log(choice);
     
@@ -18,7 +18,7 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
+function getHumanChoice() { // returns "rock", "paper", or "scissors"
     let userInput = prompt(`Enter the number that corresponds to your choice:
     1. Rock
     2. Paper
@@ -45,48 +45,70 @@ function getHumanChoice() {
     }
 }
 
-function playRound() {
+function playRound() { // returns winner: "computer", "human", or "tie"
     let computer = getComputerChoice();
+    console.log("playRound computer:", computer);
     let human = getHumanChoice();
+    console.log("playRound human:", human);
 
     switch (computer) {
         case "rock":
-            if (human == "rock") {
-                alert("Tie");
-            }
-            else if (human == "paper") {
+            if (human == "paper") {
                 alert("Paper covers Rock. You win!");
+                console.log("cc: rock - hc: paper - human win");
+                return "human";
             }
             else if (human == "scissors") {
                 alert("Rock crushes Scissors. You lose.");
+                console.log("cc: rock - hc: scissors - computer win");
+                return "computer";
+            }
+            else { // human == "rock"
+                alert("Tie");
+                console.log("cc: rock - hc: rock - tie");
+                return "tie";
             }
         case "paper":
             if (human == "rock") {
                 alert("Paper covers Rock. You lose.");
-            }
-            else if (human == "paper") {
-                alert("Tie");
+                console.log("cc: paper - hc: rock - computer win");
+                return "computer";
             }
             else if (human == "scissors") {
                 alert("Scissors cut Paper. You win!");
+                console.log("cc: paper - hc: scissors - human win");
+                return "human";
+            }
+            else { // human == "paper"
+                alert("Tie");
+                console.log("cc: paper - hc: paper - tie");
+                return "tie";
             }
         case "scissors":
             if (human == "rock") {
                 alert("Rock crushes Scissors. You win!");
+                console.log("cc: scissors - hc: rock - human win");
+                return "human";
             }
             else if (human == "paper") {
                 alert("Scissors cut Paper. You lose.");
+                console.log("cc: scissors - hc: paper - computer win");
+                return "computer";
             }
-            else if (human == "scissors") {
+            else { // human == "scissors"
                 alert("Tie");
+                console.log("cc: scissors - hc: scissors - tie");
+                return "tie";
             }
         default:
-            alert("Other");
+            alert("Missing case somewhere");
+            console.log("Missing case somewhere");
     }
 }
 
 let humanScore = 0;
 let computerScore = 0;
-playRound();
+let winner = playRound();
+console.log("winner: ", winner);
 
 
