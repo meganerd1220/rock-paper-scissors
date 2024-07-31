@@ -18,4 +18,32 @@ function getComputerChoice() {
     }
 }
 
-getComputerChoice();
+function getHumanChoice() {
+    let userInput = prompt(`Enter the number that corresponds to your choice:
+    1. Rock
+    2. Paper
+    3. Scissors`);
+
+    console.log(userInput);
+
+    switch (userInput) {
+        case "1":
+            alert("You chose Rock");
+            return "rock";
+        case "2":
+            alert("You chose Paper");
+            return "paper";
+        case "3":
+            alert("You chose Scissors");
+            return "scissors";
+        default:
+            alert("Your response was not an option or formatted incorrectly. Please try again.");
+            return getHumanChoice();
+    }
+
+}
+
+let computer = getComputerChoice();
+let human = getHumanChoice();
+
+
